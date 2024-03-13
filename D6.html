@@ -106,9 +106,9 @@
       };
       addClassToTitle("h1");
 
-      /* ESERCIZIO 3
-         Scrivi una funzione che cambi il testo dei p figli di un div
-        */
+      // /* ESERCIZIO 3
+      //    Scrivi una funzione che cambi il testo dei p figli di un div
+      //   */
 
       const changePcontent = function (paragraph) {
         let paragraphDivs = document.querySelectorAll(paragraph);
@@ -118,24 +118,24 @@
       };
       changePcontent("div p");
 
-      /* ESERCIZIO 4
-         Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
-        */
+      // /* ESERCIZIO 4
+      //    Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
+      //   */
 
       const changeUrls = function (link) {
         let linkToChange = document.querySelectorAll(link);
 
         for (let i = 0; i < linkToChange.length; i++) {
           console.log(linkToChange[i]);
-          linkToChange[i].href = "https://www.google.com";
+          linkToChange[i].href = "https:www.google.com";
           linkToChange[i].innerText = "Vai su google";
         }
       };
       changeUrls("a:not(footer a)");
 
-      /* ESERCIZIO 5
-         Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
-      */
+      // /* ESERCIZIO 5
+      //    Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
+      // */
 
       const addToTheSecond = function (list) {
         const li = document.createElement("li");
@@ -146,9 +146,9 @@
       addToTheSecond("#secondList li");
       console.log(secondList);
 
-      /* ESERCIZIO 6
-         Scrivi una funzione che aggiunga un paragrafo al primo div
-      */
+      // /* ESERCIZIO 6
+      //    Scrivi una funzione che aggiunga un paragrafo al primo div
+      // */
 
       const addParagraph = function (paragraph) {
         const p = document.createElement("p");
@@ -184,42 +184,35 @@
       /* ESERCIZIO 9
          Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
         */
-
       // const makeItClickable = function (header) {
       //   let titlePage = document.querySelector(header);
-      //   let cambiareTitle = titlePage.innerText;
-      //   cambiareTitle.onclick = function () {
-      //     for (let i = 0; i < cambiareTitle.length; i++) {
-      //       cambiareTitle[i].pop();
-      //     }
+      //   let cambiareTitle = 0;
+      //   titlePage.onclick = function () {
+      //     cambiareTitle = titlePage.innerText.slice(titlePage.innerText, 0, -1);
       //   };
-      //   return cambiareTitle;
       // };
-      // makeItClickable(h1);
-
-      // console.dir(titlePage);
-      // l'unico che non sono riuscita a fare
+      // makeItClickable("h1");
 
       /* ESERCIZIO 10
          Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
         */
-      const revealFooterLink = function (link) {
-        let linkFooter = document.querySelector(link);
-        linkFooter.onclick = function (event) {
-          event.preventDefault();
-          alert(linkFooter.attributes[0].nodeValue);
-        };
-      };
-      revealFooterLink("footer a");
-
       // const revealFooterLink = function (link) {
-      //   const linkFooter = document.querySelector(link);
-      //   linkFooter.addEventListener("click", function (event) {
+      //   let linkFooter = document.querySelector(link);
+      //   linkFooter.onclick = function (event) {
       //     event.preventDefault();
       //     alert(linkFooter.attributes[0].nodeValue);
-      //   });
+      //   };
       // };
       // revealFooterLink("footer a");
+
+      const revealFooterLink = function (link) {
+        const linkFooter = document.querySelector(link);
+        linkFooter.addEventListener("click", function (event) {
+          event.preventDefault();
+          alert(linkFooter.attributes[0].nodeValue);
+        });
+      };
+      revealFooterLink("footer a");
 
       /* ESERCIZIO 11
          Crea una funzione che crei una tabella nell'elemento con id "tableArea".
@@ -293,7 +286,20 @@
       */
       /*rgb*/
 
-      const changeColorWithRandom = function () {};
+      const changeColorWithRandom = function (header) {
+        const changeColor = document.getElementById(header);
+        // let r = 0;
+        // let g = 0;
+        // let b = 0;
+        changeColor.onclick = function () {
+          // r = Math.floor(Math.random(r) * 256);
+          // g = Math.floor(Math.random(g) * 256);
+          // b = Math.floor(Math.random(b) * 256);
+          // changeColor.style.color = "(r g b)";
+          changeColor.style.color = "black";
+        };
+      };
+      changeColorWithRandom("changeMyColor");
     </script>
   </body>
 </html>
